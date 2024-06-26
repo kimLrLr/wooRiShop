@@ -1,7 +1,8 @@
 # 설치항목
 
-[ ] react-router-dom <br/>
-[ ] react-helmet-async <br/>
-[ ] styled-components <br/>
-[ ] styled-reset <br/>
-[ ] Swiper <br/>
+[x] react-router-dom <br/>
+[x] react-helmet-async <br/>
+[x] styled-components <br/>
+[x] styled-reset <br/>
+[x] Swiper <br/>
+[ ] Redux <br/>
