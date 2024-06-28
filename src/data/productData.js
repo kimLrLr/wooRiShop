@@ -273,7 +273,7 @@ export const productData = [
     pName: `스프레이`,
     pDesc: `안전한 성분으로 악취를 99.9% 제거하는 소취제`,
     pPrice: `19,900`,
-    pClass: `cat``dog`,
+    pClass: `dog`,
     pCheck: [{ pEvent: true }, { pRecs: true }],
   },
   {
