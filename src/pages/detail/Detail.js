@@ -16,17 +16,17 @@ const ConWrap = styled.div`
 
 const PWrap = styled.div`
   width: 80%;
-  height: 60%;
+  height: 80%;
   display: flex;
 `;
+
 const PImg = styled.div`
   background-color: gray;
   height: 100%;
-  margin-right: 80px;
   background: url(${(props) => props.$imgUrl}) no-repeat center / cover;
-  max-width: 500px;
 `;
 const PTextWrap = styled.div`
+  margin-left: 80px;
   width: 100%;
 `;
 const PName = styled.div``;
@@ -61,7 +61,7 @@ export const Detail = () => {
           <Swiper {...params}>
             {detailData.pImg.map((data, idx) => (
               <SwiperSlide key={idx}>
-                <PImg $imgUrl={data.imgUrl}></PImg>
+                <PImg $imgUrl={data.imgUrl} />
               </SwiperSlide>
             ))}
           </Swiper>
