@@ -8,26 +8,32 @@ import styled from "styled-components";
 
 const ConWrap = styled.div`
   width: 100vw;
-  height: 85vh;
+  padding: 5% 0;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const PWrap = styled.div`
-  width: 80%;
-  height: 80%;
+  width: 60%;
+  height: 60%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ImgWrap = styled.div`
+  width: 100%;
 `;
 
 const PImg = styled.div`
   background-color: gray;
-  height: 100%;
+  width: 100%;
+  height: 500px;
   background: url(${(props) => props.$imgUrl}) no-repeat center / cover;
 `;
 const PTextWrap = styled.div`
   margin-left: 80px;
-  width: 100%;
 `;
 const PName = styled.div``;
 const PDesc = styled.div``;
@@ -40,6 +46,7 @@ const BuyBtn = styled.button``;
 const params = {
   modules: [Autoplay, Navigation],
   slidesPerView: 1,
+  centeredSlides: true,
   loop: true,
   autoplay: {
     delay: 2500,
@@ -58,13 +65,15 @@ export const Detail = () => {
     <>
       <ConWrap>
         <PWrap>
-          <Swiper {...params}>
-            {detailData.pImg.map((data, idx) => (
-              <SwiperSlide key={idx}>
-                <PImg $imgUrl={data.imgUrl} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <ImgWrap>
+            <Swiper {...params}>
+              {detailData.pImg.map((data, idx) => (
+                <SwiperSlide key={idx}>
+                  <PImg $imgUrl={data.imgUrl} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </ImgWrap>
           <PTextWrap>
             <PName>{detailData.pName}</PName>
             <PDesc>{detailData.pDesc}</PDesc>
