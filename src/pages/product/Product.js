@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { productData } from "../../data/productData";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const GridWrap = styled.div`
   display: grid;
@@ -27,10 +26,14 @@ const PPrice = styled.div`
 `;
 
 export const Product = () => {
+  const menuData = useLocation();
+
+  const pListData = menuData.state.product;
+
   return (
     <>
       <GridWrap>
-        {productData.map((data) => (
+        {pListData.map((data) => (
           <PWrap key={data.id}>
             <Link to={`/detail`} state={{ pData: data }}>
               <PImg $bgUrl={data.pImg[0].imgUrl} />

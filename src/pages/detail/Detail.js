@@ -58,7 +58,7 @@ export const Detail = () => {
   const productData = useLocation();
   const detailData = productData.state.pData;
 
-  console.log(productData.state.pData);
+  // console.log(productData.state.pData);
   // => 데이터 확인용
 
   return (

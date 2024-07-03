@@ -24,7 +24,8 @@ export const productData = [
     pDesc: `고양이들이 너무너무 좋아하는 캣닢(개박하)을 스프레이 형태로 제작하였습니다.`,
     pPrice: `12,900`,
     pClass: `cat`,
-    pCheck: [{ pEvent: true }, { pRecs: true }],
+    pEvent: true,
+    pRecs: true,
   },
   {
     id: 1,
@@ -49,7 +50,8 @@ export const productData = [
     pDesc: `국내산 한우와 호주 청정우 우신을 자연 건조해 풍미 가득!`,
     pPrice: `12,900`,
     pClass: `dog`,
-    pCheck: [{ pEvent: true }, { pRecs: false }],
+    pEvent: true,
+    pRecs: false,
   },
   {
     id: 2,
@@ -74,7 +76,8 @@ export const productData = [
     pDesc: `참치 명가 동원의 노하우를 담은 100% 휴먼그레이드 퓨어 튜나 스틱`,
     pPrice: `25,900`,
     pClass: `cat`,
-    pCheck: [{ pEvent: false }, { pRecs: true }],
+    pEvent: false,
+    pRecs: true,
   },
   {
     id: 3,
@@ -99,7 +102,8 @@ export const productData = [
     pDesc: `기도 압박 없이 원터치로 편리하게 착용/분리가 가능한 위생적인 하네스`,
     pPrice: `31,900`,
     pClass: `dog`,
-    pCheck: [{ pEvent: false }, { pRecs: false }],
+    pEvent: false,
+    pRecs: false,
   },
   {
     id: 4,
@@ -124,7 +128,8 @@ export const productData = [
     pDesc: `맞춤 균주 솔루션으로 완성한 반려묘 전용 프리미엄 유산균`,
     pPrice: `37,900`,
     pClass: `cat`,
-    pCheck: [{ pEvent: true }, { pRecs: true }],
+    pEvent: true,
+    pRecs: true,
   },
   {
     id: 5,
@@ -149,7 +154,8 @@ export const productData = [
     pDesc: `맞춤 균주 솔루션으로 완성한 반려견 전용 프리미엄 유산균`,
     pPrice: `37,900`,
     pClass: `dog`,
-    pCheck: [{ pEvent: true }, { pRecs: true }],
+    pEvent: true,
+    pRecs: true,
   },
   {
     id: 6,
@@ -174,7 +180,8 @@ export const productData = [
     pDesc: `안전한 야외 산책을 위한 2중 보호 세트`,
     pPrice: `24,900`,
     pClass: `dog`,
-    pCheck: [{ pEvent: false }, { pRecs: true }],
+    pEvent: false,
+    pRecs: true,
   },
   {
     id: 7,
@@ -199,7 +206,8 @@ export const productData = [
     pDesc: `손쉽게 열리는 100% 생분해 배변봉투`,
     pPrice: `9,900`,
     pClass: `dog`,
-    pCheck: [{ pEvent: false }, { pRecs: false }],
+    pEvent: false,
+    pRecs: false,
   },
   {
     id: 8,
@@ -224,7 +232,8 @@ export const productData = [
     pDesc: `미세하고 고운 입자로 기호성을 높인 크랙형 두부 모래`,
     pPrice: `28,900`,
     pClass: `cat`,
-    pCheck: [{ pEvent: false }, { pRecs: true }],
+    pEvent: false,
+    pRecs: true,
   },
   {
     id: 9,
@@ -249,7 +258,8 @@ export const productData = [
     pDesc: `발톱 건강을 위한 묘생 필수템! 자체개발 해먹형 스크래쳐`,
     pPrice: `32,900`,
     pClass: `cat`,
-    pCheck: [{ pEvent: true }, { pRecs: false }],
+    pEvent: true,
+    pRecs: false,
   },
   {
     id: 10,
@@ -274,7 +284,8 @@ export const productData = [
     pDesc: `안전한 성분으로 악취를 99.9% 제거하는 소취제`,
     pPrice: `19,900`,
     pClass: `dog`,
-    pCheck: [{ pEvent: true }, { pRecs: true }],
+    pEvent: true,
+    pRecs: true,
   },
   {
     id: 11,
@@ -299,6 +310,7 @@ export const productData = [
     pDesc: `고양이에겐 살랑, 집사에겐 말랑한 사냥 놀이 시간!`,
     pPrice: `17,800`,
     pClass: `cat`,
-    pCheck: [{ pEvent: true }, { pRecs: true }],
+    pEvent: true,
+    pRecs: true,
   },
 ];
