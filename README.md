@@ -5,4 +5,5 @@
 [x] styled-components <br/>
 [x] styled-reset <br/>
 [x] Swiper <br/>
-[ ] Redux <br/>
+[x] Redux <br/>
+[x] Axios <br/>
