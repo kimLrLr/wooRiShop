@@ -133,7 +133,7 @@ export const Header = () => {
         <Link to={routes.login}>
           <li>로그인</li>
         </Link>
-        <Link to={routes.join}>
+        <Link to={routes.signup}>
           <li>회원가입</li>
         </Link>
       </SideMenu>
