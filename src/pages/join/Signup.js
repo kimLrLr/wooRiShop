@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { firebaseAuth, createUserWithEmailAndPassword } from "../../firebase";
 import {
   ButtonUi,
@@ -16,7 +17,10 @@ export const Signup = () => {
   const [registerPassword, setRegisterPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
-  const register = async () => {
+  const navigate = useNavigate();
+
+  const register = async (e) => {
+    e.preventDefault();
     try {
       setErrorMsg("　");
       const createdUser = await createUserWithEmailAndPassword(
@@ -26,6 +30,8 @@ export const Signup = () => {
       );
 
       console.log(createdUser);
+
+      navigate("/login");
 
       setRegisterEmail("");
       setRegisterPassword("");

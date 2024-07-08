@@ -1,59 +1,85 @@
+import { useNavigate } from "react-router-dom";
+import { firebaseAuth, signInWithEmailAndPassword } from "../../firebase";
+import {
+  ButtonUi,
+  ErrorMessage,
+  Form,
+  Input,
+  Separ,
+  Title,
+  UnderInfo,
+  Wrap,
+} from "../../style/formStyles";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import styled from "styled-components";
-import { login } from "../../features/userSlice";
-
-// const LoginWrap = styled.div``;
-// const LoginForm = styled.div``;
 
 export const Login = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const register = async (e) => {
     e.preventDefault();
+    try {
+      const loginUser = await signInWithEmailAndPassword(
+        firebaseAuth,
+        registerEmail,
+        registerPassword
+      );
 
-    dispatch(
-      login({
-        name: name,
-        email: email,
-        password: password,
-        loggedIn: true,
-      })
-    );
+      console.log(loginUser);
+      navigate("/");
+
+      setRegisterEmail("");
+      setRegisterPassword("");
+    } catch (err) {
+      //console.log(err.code);
+      setErrorMsg("아이디 및 비밀번호를 정확하게 입력해주세요.");
+      switch (err.code) {
+        case "auth/weak-password":
+          setErrorMsg("비밀번호는 6자리 이상이어야 합니다");
+          break;
+        case "auth/invalid-email":
+          setErrorMsg("잘못된 이메일 주소입니다");
+          break;
+      }
+    }
   };
 
   return (
-    <>
-      <div className="login">
-        <form className="login__form" onSubmit={(e) => handleSubmit(e)}>
-          <h1>Login Here</h1>
-          <input
-            type="name"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit" className="submit__btn">
-            Submit
-          </button>
-        </form>
-      </div>
-    </>
+    <Wrap>
+      <Form onSubmit={register}>
+        <Title>Log In</Title>
+
+        <Input
+          type="text"
+          placeholder="이메일"
+          onChange={(e) => setRegisterEmail(e.target.value)}
+        />
+
+        <Input
+          type="password"
+          placeholder="패스워드"
+          onChange={(e) => setRegisterPassword(e.target.value)}
+        />
+
+        <ErrorMessage text={errorMsg} />
+
+        <ButtonUi type="submit" text={"로그인"} />
+
+        <Separ>
+          <span></span>
+          <b>또는</b>
+          <span></span>
+        </Separ>
+
+        <UnderInfo
+          userAccountCheck={"아이디가 없으신가요?"}
+          //   linkText={routes.login}    // routes 사용으로 인해 값을 넘기지 못하는 문제가 있음. 추후 수정 필요.
+          accountText={"회원가입"}
+        />
+      </Form>
+    </Wrap>
   );
 };
