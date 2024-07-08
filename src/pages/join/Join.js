@@ -1,55 +1,88 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { login } from "../../features/userSlice";
-import { ButtonUi, Form, Input, Title, Wrap } from "../../style/formStyles";
+import { useNavigate } from "react-router-dom";
 import { firebaseAuth, createUserWithEmailAndPassword } from "../../firebase";
+import {
+  ButtonUi,
+  ErrorMessage,
+  Form,
+  Input,
+  Separ,
+  Title,
+  UnderInfo,
+  Wrap,
+} from "../../style/formStyles";
+import { useState } from "react";
 
 export const Join = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const register = async (e) => {
     e.preventDefault();
+    try {
+      setErrorMsg("　");
+      const createdUser = await createUserWithEmailAndPassword(
+        firebaseAuth,
+        registerEmail,
+        registerPassword
+      );
 
-    dispatch(
-      login({
-        name: name,
-        email: email,
-        password: password,
-        loggedIn: true,
-      })
-    );
+      console.log(createdUser);
+
+      navigate("/login");
+
+      setRegisterEmail("");
+      setRegisterPassword("");
+    } catch (err) {
+      //console.log(err.code);
+      switch (err.code) {
+        case "auth/weak-password":
+          setErrorMsg("비밀번호는 6자리 이상이어야 합니다");
+          break;
+        case "auth/invalid-email":
+          setErrorMsg("잘못된 이메일 주소입니다");
+          break;
+        case "auth/email-already-in-use":
+          setErrorMsg("이미 가입되어 있는 계정입니다");
+          break;
+      }
+    }
   };
 
   return (
-    <>
-      <Wrap>
-        <Form onSubmit={handleSubmit}>
-          <Title>SIGN UP</Title>
-          <Input
-            type="name"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <ButtonUi type="submit" text={"회원가입"} />
-        </Form>
-      </Wrap>
-    </>
+    <Wrap>
+      <Form onSubmit={register}>
+        <Title>SIGN UP</Title>
+
+        <Input
+          type="text"
+          placeholder="이메일"
+          onChange={(e) => setRegisterEmail(e.target.value)}
+        />
+
+        <Input
+          type="password"
+          placeholder="패스워드"
+          onChange={(e) => setRegisterPassword(e.target.value)}
+        />
+
+        <ErrorMessage text={errorMsg} />
+
+        <ButtonUi type="submit" text={"회원가입"} />
+
+        <Separ>
+          <span></span>
+          <b>또는</b>
+          <span></span>
+        </Separ>
+
+        <UnderInfo
+          userAccountCheck={"아이디가 있으신가요?"}
+          accountText={"로그인"}
+        />
+      </Form>
+    </Wrap>
   );
 };
