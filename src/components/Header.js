@@ -3,6 +3,8 @@ import { routes } from "../routes";
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
 import { productData } from "../data/productData";
+import { firebaseAuth } from "../firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 const Sheader = styled.div`
   width: 100%;
@@ -60,6 +62,18 @@ export const Header = () => {
   const [proDogData, setProDogData] = useState();
   const [proCatData, setProCatData] = useState();
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const user = firebaseAuth.currentUser;
+
+  const logoutHandler = async () => {
+    try {
+      await signOut(firebaseAuth);
+      alert("로그아웃 되었습니다.");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     (async () => {
       try {
@@ -108,6 +122,16 @@ export const Header = () => {
     })();
   }, []);
 
+  useEffect(() => {
+    firebaseAuth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+  });
+
   return (
     <Sheader ref={headerRef}>
       <MenuWrap>
@@ -129,14 +153,22 @@ export const Header = () => {
           </Link>
         </Gnb>
       </MenuWrap>
-      <SideMenu>
-        <Link to={routes.login}>
-          <li>로그인</li>
-        </Link>
-        <Link to={routes.signup}>
-          <li>회원가입</li>
-        </Link>
-      </SideMenu>
+
+      {!user && (
+        <SideMenu>
+          <Link to={routes.login}>
+            <li>로그인</li>
+          </Link>
+          <Link to={routes.join}>
+            <li>회원가입</li>
+          </Link>
+        </SideMenu>
+      )}
+      {user && (
+        <SideMenu>
+          <li onClick={logoutHandler}>로그아웃</li>
+        </SideMenu>
+      )}
     </Sheader>
   );
 };

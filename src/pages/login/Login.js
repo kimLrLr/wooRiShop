@@ -76,7 +76,6 @@ export const Login = () => {
 
         <UnderInfo
           userAccountCheck={"아이디가 없으신가요?"}
-          //   linkText={routes.login}    // routes 사용으로 인해 값을 넘기지 못하는 문제가 있음. 추후 수정 필요.
           accountText={"회원가입"}
         />
       </Form>
