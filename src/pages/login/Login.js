@@ -53,7 +53,7 @@ export const Login = () => {
         <Title>Log In</Title>
 
         <Input
-          type="text"
+          type="email"
           placeholder="이메일"
           onChange={(e) => setRegisterEmail(e.target.value)}
         />

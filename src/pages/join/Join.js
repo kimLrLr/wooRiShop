@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { firebaseAuth, createUserWithEmailAndPassword } from "../../firebase";
+import {
+  firebaseAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "../../firebase";
 import {
   ButtonUi,
   ErrorMessage,
@@ -11,10 +15,12 @@ import {
   Wrap,
 } from "../../style/formStyles";
 import { useState } from "react";
+import { signOut } from "firebase/auth";
 
 export const Join = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const [userNickname, setUserNickname] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
   const navigate = useNavigate();
@@ -32,6 +38,12 @@ export const Join = () => {
       console.log(createdUser);
 
       navigate("/login");
+
+      signOut(firebaseAuth);
+
+      await updateProfile(firebaseAuth.currentUser, {
+        displayName: userNickname,
+      });
 
       setRegisterEmail("");
       setRegisterPassword("");
@@ -57,7 +69,7 @@ export const Join = () => {
         <Title>SIGN UP</Title>
 
         <Input
-          type="text"
+          type="email"
           placeholder="이메일"
           onChange={(e) => setRegisterEmail(e.target.value)}
         />
@@ -66,6 +78,12 @@ export const Join = () => {
           type="password"
           placeholder="패스워드"
           onChange={(e) => setRegisterPassword(e.target.value)}
+        />
+
+        <Input
+          type="text"
+          placeholder="닉네임"
+          onChange={(e) => setUserNickname(e.target.value)}
         />
 
         <ErrorMessage text={errorMsg} />
