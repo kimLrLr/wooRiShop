@@ -313,4 +313,160 @@ export const productData = [
     pEvent: true,
     pRecs: true,
   },
+  {
+    id: 12,
+    pImg: [
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/honey_chew_dog1.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/honey_chew_dog2.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/honey_chew_dog3.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/honey_chew_dog4.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/honey_chew_dog5.jpg`,
+      },
+    ],
+    pName: `허니 터키츄`,
+    pDesc: `자연에서 얻은 황금빛 마누카꿀이 가득!`,
+    pPrice: `28,500`,
+    pClass: `dog`,
+    pEvent: true,
+    pRecs: false,
+  },
+  {
+    id: 13,
+    pImg: [
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/no_touch_dog1.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/no_touch_dog2.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/no_touch_dog3.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/no_touch_dog4.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/no_touch_dog5.jpg`,
+      },
+    ],
+    pName: `노터치 안티쇼크 하네스`,
+    pDesc: `노터치 버클과 서스팬션 밴드 설계로 자극을 최소화`,
+    pPrice: `52,800`,
+    pClass: `dog`,
+    pEvent: false,
+    pRecs: false,
+  },
+  {
+    id: 14,
+    pImg: [
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/bubble_dog1.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/bubble_dog2.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/bubble_dog3.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/bubble_dog4.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/bubble_dog5.jpg`,
+      },
+    ],
+    pName: `버블 샴푸 독스`,
+    pDesc: `EWG 그린 등급으로 이루어진 저자극 천연 샴푸 버블 샴푸`,
+    pPrice: `21,500`,
+    pClass: `dog`,
+    pEvent: false,
+    pRecs: false,
+  },
+  {
+    id: 15,
+    pImg: [
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/pop_toy_cat1.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/pop_toy_cat2.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/pop_toy_cat3.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/pop_toy_cat4.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/pop_toy_cat5.jpg`,
+      },
+    ],
+    pName: `팝업 토이`,
+    pDesc: `놀이가 지루해진 우리 아이를 위한 새로운 DIY 장난감!`,
+    pPrice: `15,900`,
+    pClass: `cat`,
+    pEvent: false,
+    pRecs: true,
+  },
+  {
+    id: 16,
+    pImg: [
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/can_cat1.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/can_cat2.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/can_cat3.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/can_cat4.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/can_cat5.jpg`,
+      },
+    ],
+    pName: `알렉스 튜나 & 에릭 치킨 캔`,
+    pDesc: `고양이에 의한, 고양이를 위한 프리미엄 영양식`,
+    pPrice: `2,500`,
+    pClass: `cat`,
+    pEvent: true,
+    pRecs: false,
+  },
+  {
+    id: 17,
+    pImg: [
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/hybrid_sand_cat1.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/hybrid_sand_cat2.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/hybrid_sand_cat3.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/hybrid_sand_cat4.jpg`,
+      },
+      {
+        imgUrl: `${IMG_URL}${P_IMG_URL}/hybrid_sand_cat5.jpg`,
+      },
+    ],
+    pName: `하이브리드 카사나이트`,
+    pDesc: `자연에서 얻은 천연 카사바와 미국 와이오밍 주에서 얻은 최고급 벤토나이트`,
+    pPrice: `33,900`,
+    pClass: `cat`,
+    pEvent: false,
+    pRecs: false,
+  },
 ];
