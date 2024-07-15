@@ -166,6 +166,7 @@ export const Header = () => {
       )}
       {user && (
         <SideMenu>
+          <div>{user.displayName} 님</div>
           <li onClick={logoutHandler}>로그아웃</li>
         </SideMenu>
       )}
