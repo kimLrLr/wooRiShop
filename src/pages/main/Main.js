@@ -20,7 +20,6 @@ const MainBnner = styled.div`
 
 const params = {
   slidesPerView: 3,
-  centeredSlides: true,
   spaceBetween: 30,
   navigation: true,
   modules: [Pagination, Navigation],
