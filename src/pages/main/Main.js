@@ -72,6 +72,7 @@ const ProductA = styled.div`
   padding: 20px 0;
   display: flex;
   margin-bottom: 100px;
+  justify-content: space-between;
 `;
 const ProductB = styled.div`
   width: 100%;
@@ -79,6 +80,7 @@ const ProductB = styled.div`
   /* background-color: #808080; */
   padding: 20px 0;
   display: flex;
+  justify-content: space-between;
 `;
 const ProductAImg = styled.div`
   width: 40%;
@@ -91,31 +93,41 @@ const ProductBImg = styled.div`
   background-color: cornflowerblue;
 `;
 const ProductAEx = styled.div`
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 `;
 const ProductBEx = styled.div`
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: end;
 `;
 const PAname = styled.div`
   font-size: 60px;
   font-weight: 600;
 `;
-const PAdecs = styled.div``;
-const PAprice = styled.div``;
+const PAdecs = styled.div`
+  font-size: 30px;
+  margin: 40px 0;
+`;
+const PAprice = styled.div`
+  font-size: 24px;
+`;
 const PBname = styled.div`
   font-size: 60px;
   font-weight: 600;
 `;
-const PBdecs = styled.div``;
-const PBprice = styled.div``;
+const PBdecs = styled.div`
+  font-size: 30px;
+  margin: 40px 0;
+`;
+const PBprice = styled.div`
+  font-size: 24px;
+`;
 
 export const Main = () => {
   return (
@@ -138,7 +150,7 @@ export const Main = () => {
       </BannerWrap>
 
       <SubBannerWrap>
-        <SubBanner></SubBanner>
+        <SubBanner>배너 사진 찾아보고 넣을게용</SubBanner>
       </SubBannerWrap>
 
       <ProductWrap>
