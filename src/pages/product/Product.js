@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 
 const GridWrap = styled.div`
+  padding: 5% 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 30px; //가로컨텐츠간격
   row-gap: 50px; //세로컨텐츠간격
 `;
@@ -14,14 +15,17 @@ const PWrap = styled.div`
   flex-direction: column;
 `;
 const PImg = styled.div`
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 350px;
   background: url(${(props) => props.$bgUrl}) no-repeat center / cover;
 `;
 const PName = styled.div`
+  margin: 20px 0 10px 0;
+  font-size: 20px;
   text-align: center;
 `;
 const PPrice = styled.div`
+  font-size: 16px;
   text-align: center;
 `;
 

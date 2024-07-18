@@ -5,33 +5,24 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { productData } from "../../data/productData";
 import { Link } from "react-router-dom";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 
 const BannerWrap = styled.div`
   width: 100%;
-  padding: 5% 0;
+  padding: 5% 2%;
 `;
 
 const MainBnner = styled.div`
   width: 100%;
-  height: 500px;
+  height: 400px;
   background: url(${(props) => props.$bgUrl}) no-repeat center / cover;
 `;
 
 const params = {
-  effect: "coverflow",
-  grabCursor: true,
-  centeredSlides: true,
   slidesPerView: 3,
-  coverflowEffect: {
-    rotate: 60,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows: false,
-  },
-
-  modules: [EffectCoverflow, Pagination],
+  spaceBetween: 30,
+  navigation: true,
+  modules: [Pagination, Navigation],
 };
 
 const PName = styled.h4`
@@ -56,23 +47,130 @@ const PDecs = styled.p`
   display: flex;
   justify-content: center;
 `;
+
+const SubBannerWrap = styled.div`
+  width: 100%;
+  height: 400px;
+`;
+const SubBanner = styled.div`
+  height: 100%;
+  background-color: bisque;
+`;
+
+const ProductWrap = styled.div`
+  width: 100%;
+  height: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const ProductA = styled.div`
+  width: 100%;
+  height: 500px;
+  /* background-color: #999; */
+  padding: 20px 0;
+  display: flex;
+  margin-bottom: 100px;
+  justify-content: space-between;
+`;
+const ProductB = styled.div`
+  width: 100%;
+  height: 500px;
+  /* background-color: #808080; */
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+`;
+const ProductAImg = styled.div`
+  width: 40%;
+  height: 100%;
+  background-color: aqua;
+`;
+const ProductBImg = styled.div`
+  width: 40%;
+  height: 100%;
+  background-color: cornflowerblue;
+`;
+const ProductAEx = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+`;
+const ProductBEx = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+`;
+const PAname = styled.div`
+  font-size: 60px;
+  font-weight: 600;
+`;
+const PAdecs = styled.div`
+  font-size: 30px;
+  margin: 40px 0;
+`;
+const PAprice = styled.div`
+  font-size: 24px;
+`;
+const PBname = styled.div`
+  font-size: 60px;
+  font-weight: 600;
+`;
+const PBdecs = styled.div`
+  font-size: 30px;
+  margin: 40px 0;
+`;
+const PBprice = styled.div`
+  font-size: 24px;
+`;
+
 export const Main = () => {
   return (
-    <BannerWrap>
-      <Swiper {...params}>
-        {productData
-          .map((data) => (
-            <SwiperSlide key={data.id}>
-              <Link to={`/detail/`} state={{ pData: data }}>
-                <MainBnner $bgUrl={data.pImg[0].imgUrl} />
-                <PName>{data.pName}</PName>
-                <PDecs>{data.pDesc}</PDecs>
-                <PPrice>{data.pPrice}</PPrice>
-              </Link>
-            </SwiperSlide>
-          ))
-          .slice(0, 7)}
-      </Swiper>
-    </BannerWrap>
+    <>
+      <BannerWrap>
+        <Swiper {...params}>
+          {productData
+            .map((data) => (
+              <SwiperSlide key={data.id}>
+                <Link to={`/detail/`} state={{ pData: data }}>
+                  <MainBnner $bgUrl={data.pImg[0].imgUrl} />
+                  <PName>{data.pName}</PName>
+                  <PDecs>{data.pDesc}</PDecs>
+                  <PPrice>{data.pPrice}</PPrice>
+                </Link>
+              </SwiperSlide>
+            ))
+            .slice(0, 7)}
+        </Swiper>
+      </BannerWrap>
+
+      <SubBannerWrap>
+        <SubBanner>배너 사진 찾아보고 넣을게용</SubBanner>
+      </SubBannerWrap>
+
+      <ProductWrap>
+        <ProductA>
+          <ProductAImg />
+          <ProductAEx>
+            <PAname>상품이름</PAname>
+            <PAdecs>상품설명</PAdecs>
+            <PAprice>상품가격</PAprice>
+          </ProductAEx>
+        </ProductA>
+        <ProductB>
+          <ProductBEx>
+            <PBname>상품이름</PBname>
+            <PBdecs>상품설명</PBdecs>
+            <PBprice>상품가격</PBprice>
+          </ProductBEx>
+          <ProductBImg />
+        </ProductB>
+      </ProductWrap>
+    </>
   );
 };
