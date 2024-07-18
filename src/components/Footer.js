@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { routes } from "../routes";
 import { Link } from "react-router-dom";
+import { IMG_URL, L_IMG_URL } from "../constants";
 
 const SFooter = styled.div`
   width: 100%;
@@ -31,7 +32,12 @@ export const Footer = () => {
   return (
     <SFooter>
       <FLogo>
-        <Link to={routes.main}>wooRI</Link>
+        <Link to={routes.main}>
+          <img
+            src={IMG_URL + L_IMG_URL + `/wooRi_logo_grayscale.png`}
+            alt="woori shop 푸터 이미지"
+          />
+        </Link>
       </FLogo>
       <Copyright>
         <p>Copyright 2024. kimLrLr, onyyyyy all rights reserved.</p>
