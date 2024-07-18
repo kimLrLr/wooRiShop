@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { productData } from "../data/productData";
 import { firebaseAuth } from "../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { IMG_URL, L_IMG_URL } from "../constants";
 
 const Sheader = styled.div`
   width: 100%;
@@ -136,7 +137,12 @@ export const Header = () => {
     <Sheader ref={headerRef}>
       <MenuWrap>
         <Logo>
-          <Link to={routes.main}>wooRI</Link>
+          <Link to={routes.main}>
+            <img
+              src={IMG_URL + L_IMG_URL + `/wooRi_logo_color.png`}
+              alt="woori shop 로고 이미지"
+            />
+          </Link>
         </Logo>
         <Gnb>
           <Link to={routes.product} state={{ product: proRecs }}>
