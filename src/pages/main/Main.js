@@ -85,12 +85,12 @@ const ProductB = styled.div`
 const ProductAImg = styled.div`
   width: 40%;
   height: 100%;
-  background-color: aqua;
+  background: url(${(props) => props.$imgUrl}) no-repeat center / cover;
 `;
 const ProductBImg = styled.div`
   width: 40%;
   height: 100%;
-  background-color: cornflowerblue;
+  background: url(${(props) => props.$imgUrl}) no-repeat center / cover;
 `;
 const ProductAEx = styled.div`
   width: 50%;
@@ -155,21 +155,35 @@ export const Main = () => {
 
       <ProductWrap>
         <ProductA>
-          <ProductAImg />
+          <ProductAImg $imgUrl={productData[9].pImg[0].imgUrl} />
           <ProductAEx>
-            <PAname>상품이름</PAname>
-            <PAdecs>상품설명</PAdecs>
-            <PAprice>상품가격</PAprice>
+            <PAname>{productData[9].pName}</PAname>
+            <PAdecs>{productData[9].pDesc}</PAdecs>
+            <PAprice>{productData[9].pPrice}</PAprice>
           </ProductAEx>
         </ProductA>
+
         <ProductB>
           <ProductBEx>
-            <PBname>상품이름</PBname>
-            <PBdecs>상품설명</PBdecs>
-            <PBprice>상품가격</PBprice>
+            <PBname>{productData[8].pName}</PBname>
+            <PBdecs>{productData[8].pDesc}</PBdecs>
+            <PBprice>{productData[8].pPrice}</PBprice>
           </ProductBEx>
-          <ProductBImg />
+          <ProductBImg $imgUrl={productData[8].pImg[0].imgUrl} />
         </ProductB>
+
+        {/* {productData
+            .map((data) => (
+              <SwiperSlide key={data.id}>
+                <Link to={`/detail/`} state={{ pData: data }}>
+                  <MainBnner $bgUrl={data.pImg[0].imgUrl} />
+                  <PName>{data.pName}</PName>
+                  <PDecs>{data.pDesc}</PDecs>
+                  <PPrice>{data.pPrice}</PPrice>
+                </Link>
+              </SwiperSlide>
+            ))
+            .slice(0, 7)} */}
       </ProductWrap>
     </>
   );
