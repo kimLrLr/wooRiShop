@@ -66,7 +66,6 @@ const SubBannerWrap = styled.div`
 `;
 const SubBanner = styled.div`
   height: 100%;
-  background-color: bisque;
 `;
 
 const ProductWrap = styled.div`
@@ -192,7 +191,7 @@ export const Main = () => {
           <ProductAEx>
             <PAname>{productData[9].pName}</PAname>
             <PAdecs>{productData[9].pDesc}</PAdecs>
-            <PAprice>{productData[9].pPrice}</PAprice>
+            <PAprice>{productData[9].pPrice} 원</PAprice>
           </ProductAEx>
         </ProductA>
 
@@ -200,7 +199,7 @@ export const Main = () => {
           <ProductBEx>
             <PBname>{productData[8].pName}</PBname>
             <PBdecs>{productData[8].pDesc}</PBdecs>
-            <PBprice>{productData[8].pPrice}</PBprice>
+            <PBprice>{productData[8].pPrice} 원</PBprice>
           </ProductBEx>
           <ProductBImg $imgUrl={productData[8].pImg[0].imgUrl} />
         </ProductB>

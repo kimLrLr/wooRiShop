@@ -1,10 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { Counter, CounterProvider } from "../../context";
+import { routes } from "../../routes";
 
 const ConWrap = styled.div`
   width: 100%;
@@ -47,7 +49,7 @@ const PPrice = styled.div`
   font-size: 20px;
   font-weight: 600;
 `;
-const PButton = styled.button`
+const PButton = styled.div`
   all: unset;
   margin: 20px 0 30px 0;
 `;
@@ -61,6 +63,7 @@ const BasketBtn = styled.button`
   background-color: #d9d9d9;
   text-align: center;
   margin-right: 80px;
+  cursor: pointer;
 `;
 
 const BuyBtn = styled.button`
@@ -80,6 +83,10 @@ const params = {
     delay: 2500,
   },
   pagination: true,
+};
+
+const basketHandler = () => {
+  alert("상품이 추가되었습니다.");
 };
 
 export const Detail = () => {
@@ -106,10 +113,17 @@ export const Detail = () => {
             <PName>{detailData.pName}</PName>
             <PDesc>{detailData.pDesc}</PDesc>
             <PPrice>{detailData.pPrice} 원</PPrice>
-            <PButton>수량</PButton>
+            <PButton>
+              수량
+              <CounterProvider>
+                <Counter />
+              </CounterProvider>
+            </PButton>
             <BtnWrap>
-              <BasketBtn>장바구니</BasketBtn>
-              <BuyBtn>구매하기</BuyBtn>
+              <BasketBtn onClick={basketHandler}>장바구니</BasketBtn>
+              <BuyBtn>
+                <Link to={routes.basket}>구매하기</Link>
+              </BuyBtn>
             </BtnWrap>
           </PTextWrap>
         </PWrap>
