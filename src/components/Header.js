@@ -58,8 +58,9 @@ const SideMenu = styled.ul`
 
 const NickName = styled.div`
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   margin-right: 20px;
+  color: navy;
 `;
 
 export const Header = () => {
