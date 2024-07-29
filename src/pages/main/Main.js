@@ -70,7 +70,6 @@ const SubBanner = styled.div`
 
 const ProductWrap = styled.div`
   width: 100%;
-  height: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,7 +81,7 @@ const ProductA = styled.div`
   /* background-color: #999; */
   padding: 20px 0;
   display: flex;
-  margin-bottom: 100px;
+  margin: 100px 0;
   justify-content: space-between;
 `;
 const ProductB = styled.div`
@@ -92,6 +91,7 @@ const ProductB = styled.div`
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 100px;
 `;
 const ProductAImg = styled.div`
   width: 40%;
