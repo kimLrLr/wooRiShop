@@ -5,7 +5,8 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { productData } from "../../data/productData";
 import { Link } from "react-router-dom";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { B_IMG_URL, IMG_URL } from "../../constants";
 
 const BannerWrap = styled.div`
   width: 100%;
@@ -18,11 +19,22 @@ const MainBnner = styled.div`
   background: url(${(props) => props.$bgUrl}) no-repeat center / cover;
 `;
 
-const params = {
+const main_params = {
   slidesPerView: 3,
   spaceBetween: 30,
   navigation: true,
   modules: [Pagination, Navigation],
+};
+
+const sub_params = {
+  slidesPerView: 1,
+  speed: 3000,
+  allowTouchMove: false,
+  loop: true,
+  autoplay: {
+    delay: 2500,
+  },
+  modules: [Autoplay],
 };
 
 const PName = styled.h4`
@@ -54,7 +66,6 @@ const SubBannerWrap = styled.div`
 `;
 const SubBanner = styled.div`
   height: 100%;
-  background-color: bisque;
 `;
 
 const ProductWrap = styled.div`
@@ -133,7 +144,7 @@ export const Main = () => {
   return (
     <>
       <BannerWrap>
-        <Swiper {...params}>
+        <Swiper {...main_params}>
           {productData
             .map((data) => (
               <SwiperSlide key={data.id}>
@@ -150,7 +161,28 @@ export const Main = () => {
       </BannerWrap>
 
       <SubBannerWrap>
-        <SubBanner>배너 사진 찾아보고 넣을게용</SubBanner>
+        <SubBanner>
+          <Swiper {...sub_params}>
+            <SwiperSlide>
+              <img
+                src={IMG_URL + B_IMG_URL + "/banner1.jpg"}
+                alt="고양이 배너 이미지"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={IMG_URL + B_IMG_URL + "/banner2.jpg"}
+                alt="강아지 배너 이미지"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={IMG_URL + B_IMG_URL + "/banner3.jpg"}
+                alt="강아지와 고양이 배너 이미지"
+              />
+            </SwiperSlide>
+          </Swiper>
+        </SubBanner>
       </SubBannerWrap>
 
       <ProductWrap>
@@ -159,7 +191,7 @@ export const Main = () => {
           <ProductAEx>
             <PAname>{productData[9].pName}</PAname>
             <PAdecs>{productData[9].pDesc}</PAdecs>
-            <PAprice>{productData[9].pPrice}</PAprice>
+            <PAprice>{productData[9].pPrice} 원</PAprice>
           </ProductAEx>
         </ProductA>
 
@@ -167,7 +199,7 @@ export const Main = () => {
           <ProductBEx>
             <PBname>{productData[8].pName}</PBname>
             <PBdecs>{productData[8].pDesc}</PBdecs>
-            <PBprice>{productData[8].pPrice}</PBprice>
+            <PBprice>{productData[8].pPrice} 원</PBprice>
           </ProductBEx>
           <ProductBImg $imgUrl={productData[8].pImg[0].imgUrl} />
         </ProductB>

@@ -48,6 +48,7 @@ const SideMenu = styled.ul`
   justify-content: right;
   li {
     margin-right: 30px;
+    cursor: pointer;
   }
 
   li:hover {
@@ -173,6 +174,9 @@ export const Header = () => {
       {user && (
         <SideMenu>
           <div>{user.displayName} 님</div>
+          <Link to={routes.basket}>
+            <li>장바구니</li>
+          </Link>
           <li onClick={logoutHandler}>로그아웃</li>
         </SideMenu>
       )}
