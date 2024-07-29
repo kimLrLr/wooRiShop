@@ -9,7 +9,7 @@ import { IMG_URL, L_IMG_URL } from "../constants";
 
 const Sheader = styled.div`
   width: 100%;
-  padding: 20px 5%;
+  padding: 20px 2%;
   /* background-color: #999; */
   display: flex;
   justify-content: space-between;
@@ -47,7 +47,7 @@ const SideMenu = styled.ul`
   text-align: center;
   justify-content: right;
   li {
-    margin-right: 30px;
+    margin-left: 30px;
     cursor: pointer;
   }
 
@@ -59,7 +59,6 @@ const SideMenu = styled.ul`
 const NickName = styled.div`
   font-size: 20px;
   font-weight: 700;
-  margin-right: 20px;
   color: navy;
 `;
 
