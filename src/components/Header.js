@@ -56,6 +56,12 @@ const SideMenu = styled.ul`
   }
 `;
 
+const NickName = styled.div`
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 20px;
+`;
+
 export const Header = () => {
   const headerRef = useRef();
 
@@ -173,7 +179,7 @@ export const Header = () => {
       )}
       {user && (
         <SideMenu>
-          <div>{user.displayName} 님</div>
+          <NickName>{user.displayName}님</NickName>
           <Link to={routes.basket}>
             <li>장바구니</li>
           </Link>
