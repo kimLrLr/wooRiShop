@@ -5,8 +5,8 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { Counter, CounterProvider } from "../../context";
 import { routes } from "../../routes";
+import { useState } from "react";
 
 const ConWrap = styled.div`
   width: 100%;
@@ -89,12 +89,36 @@ const basketHandler = () => {
   alert("상품이 추가되었습니다.");
 };
 
-export const Detail = () => {
+export const Detail = (props) => {
   const productData = useLocation();
   const detailData = productData.state.pData;
 
-  // console.log(productData.state.pData);
+  // console.log(detailData);
   // => 데이터 확인용
+
+  const [count, setCount] = useState(1);
+
+  const handleQuantity = (type) => {
+    if (type === "plus") {
+      setCount(count + 1);
+    } else {
+      if (count === 1) return;
+      setCount(count - 1);
+    }
+  };
+
+  const handleCart = () => {
+    const cartItem = {
+      id: detailData.id,
+      name: detailData.pName,
+      img: detailData.pImg,
+      price: detailData.pPrice,
+      quantity: count,
+    };
+    props.setCart([...props.cart, cartItem]);
+  };
+
+  // console.log(props.cart);
 
   return (
     <>
@@ -115,12 +139,12 @@ export const Detail = () => {
             <PPrice>{detailData.pPrice} 원</PPrice>
             <PButton>
               수량
-              <CounterProvider>
-                <Counter />
-              </CounterProvider>
+              <button onClick={() => handleQuantity("minus")}>-</button>
+              <span>{count}</span>
+              <button onClick={() => handleQuantity("plus")}>+</button>
             </PButton>
             <BtnWrap>
-              <BasketBtn onClick={basketHandler}>장바구니</BasketBtn>
+              <BasketBtn onClick={() => handleCart()}>장바구니</BasketBtn>
               <BuyBtn>
                 <Link to={routes.basket}>구매하기</Link>
               </BuyBtn>
