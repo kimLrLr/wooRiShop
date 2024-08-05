@@ -1,9 +1,8 @@
-export const Basket = (props) => {
-  console.log(props.cart);
-  return <>basket</>;
 import styled from "styled-components";
 
-export const Basket = () => {
+export const Basket = (props) => {
+  console.log(props.cart);
+
   const BasketWrap = styled.div`
     padding: 20px 2%;
   `;
