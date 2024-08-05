@@ -1,3 +1,6 @@
+export const Basket = (props) => {
+  console.log(props.cart);
+  return <>basket</>;
 import styled from "styled-components";
 
 export const Basket = () => {
